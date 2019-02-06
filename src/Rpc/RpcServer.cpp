@@ -1035,7 +1035,8 @@ bool RpcServer::on_getblocktemplate(const COMMAND_RPC_GETBLOCKTEMPLATE::request&
 
   res.blocktemplate_blob = toHex(block_blob);
   res.status = CORE_RPC_STATUS_OK;
-
+  //added for merged mining
+  res.data = Common::podToHex(m_core.getTopBlockHash()); // Return block header hash
   return true;
 }
 
